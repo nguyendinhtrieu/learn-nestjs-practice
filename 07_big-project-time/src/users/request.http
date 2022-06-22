@@ -1,7 +1,27 @@
+### Create User
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "email@domain.com",
+    "email": "email2@domain.com",
     "password": "password"
 }
+
+### Find User by id
+GET http://localhost:3000/auth/2
+
+### Find User by email
+GET http://localhost:3000/auth?email=email@domain.com
+
+### Delete User
+DELETE http://localhost:3000/auth/2
+
+### Update user 
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+    "email": "updated_email@email.com",
+    "password": "werertrty"
+}
+
