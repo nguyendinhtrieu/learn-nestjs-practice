@@ -19,3 +19,7 @@ Content-Type: application/json
 {
     "approved": false
 }
+
+
+### Get estimate
+GET http://localhost:3000/reports?make=make&model=model&year=2000&mileage=10000&lng=0&lat=0
