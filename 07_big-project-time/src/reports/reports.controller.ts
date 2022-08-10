@@ -6,7 +6,7 @@ import {
   Patch,
   Post,
   Query,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common';
 import { AdminGuard } from 'src/guards/admin.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
@@ -24,7 +24,9 @@ export class ReportsController {
   constructor(private reportService: ReportsService) {}
 
   @Get()
-  getEstimate(@Query() dto: GetEstimateDto) {}
+  getEstimate(@Query() dto: GetEstimateDto) {
+    return this.reportService.createEstimate(dto);
+  }
 
   @Post()
   @UseGuards(AuthGuard)
