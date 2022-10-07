@@ -15,23 +15,18 @@ import cookieSession = require('cookie-session');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => {
-        return {
-          type: 'sqlite',
-          database: configService.get<string>('DB_NAME'),
-          entities: [UserEntity, ReportEntity],
-          synchronize: true,
-        };
-      },
-    }),
-    // TypeOrmModule.forRoot({
-    //   type: 'sqlite',
-    //   database: 'db.sqlite',
-    //   entities: [UserEntity, ReportEntity],
-    //   synchronize: true,
+    // TypeOrmModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (configService: ConfigService) => {
+    //     return {
+    //       type: 'sqlite',
+    //       database: configService.get<string>('DB_NAME'),
+    //       entities: [UserEntity, ReportEntity],
+    //       synchronize: true,
+    //     };
+    //   },
     // }),
+    TypeOrmModule.forRoot(),
     UsersModule,
     ReportsModule,
   ],
